@@ -8,7 +8,7 @@ import { Inter, Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
 export const metadata: Metadata = {
   title: "coStruct",
   description: "The Internet Coordination Execution Layer",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  // icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 const inter = Inter({
