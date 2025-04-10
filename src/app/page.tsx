@@ -32,8 +32,8 @@ export default function Home() {
 
         {/* Quote Block */}
         <blockquote className="border-l-4 border-[#4B8DF8] pl-6 text-lg italic dark:border-[#00FFD1]">
-          "They'll say it's too early. But whoever defines the flow becomes the
-          standard."
+          &ldquo;They&rsquo;ll say it&rsquo;s too early. But whoever defines the
+          flow becomes the standard.&rdquo;
         </blockquote>
 
         {/* Vision */}
@@ -45,7 +45,7 @@ export default function Home() {
           </p>
 
           <p className="text-lg font-medium">
-            This isn't an app. It's infrastructure.
+            This isn&rsquo;t an app. It&rsquo;s infrastructure.
           </p>
 
           <p className="text-lg">

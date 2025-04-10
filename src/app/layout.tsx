@@ -3,7 +3,7 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Inter, Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
 
-import { TRPCReactProvider } from "~/trpc/react";
+// import { TRPCReactProvider } from "~/trpc/react";
 
 export const metadata: Metadata = {
   title: "coStruct",
@@ -35,9 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexSans.variable}`}
     >
-      <body className="font-sans antialiased">
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
