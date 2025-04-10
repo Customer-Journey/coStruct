@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexSans.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${ibmPlexSans.variable} bg-[#F8F9FA] dark:bg-[#0D0D0D]`}
     >
       <body className="font-sans antialiased">{children}</body>
     </html>
