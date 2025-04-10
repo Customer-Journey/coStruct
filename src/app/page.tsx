@@ -64,10 +64,12 @@ export default function Home() {
           </p>
 
           <a
-            href="#join"
+            href="https://x.com/ChristofferOle5"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block rounded-lg bg-[#4B8DF8] px-8 py-4 text-lg font-medium text-white shadow-md transition-all hover:opacity-90 hover:shadow-xl dark:bg-[#00FFD1] dark:text-[#0D0D0D] dark:shadow-[#00FFD1]/10"
           >
-            Join the coordination
+            DM me on X
           </a>
         </div>
         <p className="mt-8 text-center text-sm text-[#666] italic dark:text-[#999]">
