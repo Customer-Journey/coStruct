@@ -6,6 +6,9 @@ export async function GET(request: NextRequest) {
     const requestUrl = new URL(request.url);
     const code = requestUrl.searchParams.get("code");
 
+    // Create a response now so we can modify its cookies
+    const response = NextResponse.redirect(new URL("/", request.url));
+
     if (code) {
         const supabase = createServerClient(
             env.NEXT_PUBLIC_SUPABASE_URL,
@@ -15,35 +18,19 @@ export async function GET(request: NextRequest) {
                     get(name: string) {
                         return request.cookies.get(name)?.value;
                     },
-                    set(name: string, value: string, options) {
-                        const cookieOptions = {
+                    set(name: string, value: string, options: Record<string, unknown> = {}) {
+                        response.cookies.set({
                             name,
                             value,
                             ...options,
-                        };
-                        request.cookies.set(cookieOptions);
-                        const response = NextResponse.next({
-                            request: {
-                                headers: request.headers,
-                            },
                         });
-                        response.cookies.set(cookieOptions);
-                        return response;
                     },
-                    remove(name: string, options) {
-                        const cookieOptions = {
+                    remove(name: string, options: Record<string, unknown> = {}) {
+                        response.cookies.set({
                             name,
                             value: "",
                             ...options,
-                        };
-                        request.cookies.set(cookieOptions);
-                        const response = NextResponse.next({
-                            request: {
-                                headers: request.headers,
-                            },
                         });
-                        response.cookies.delete(name);
-                        return response;
                     },
                 },
             }
@@ -53,5 +40,5 @@ export async function GET(request: NextRequest) {
     }
 
     // URL to redirect to after sign in process completes
-    return NextResponse.redirect(new URL("/", request.url));
+    return response;
 } 

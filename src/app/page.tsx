@@ -1,12 +1,6 @@
-import { SignInButton } from "./_components/SignInButton";
 import { CTALinkButton, PrimaryLinkButton } from "./_components/buttons";
-import { createClient } from "~/utils/supabase-server";
 
 export default async function Home() {
-  const supabase = await createClient();
-  const { data } = await supabase.auth.getSession();
-  const session = data.session;
-
   return (
     <main className="relative min-h-screen bg-[#F8F9FA] px-6 py-12 text-[#111111] md:px-12 lg:px-24 dark:bg-[#0D0D0D] dark:text-[#F5F5F5]">
       {/* Grid Background */}

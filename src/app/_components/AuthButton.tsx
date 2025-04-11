@@ -3,7 +3,7 @@
 import { createClient } from "~/utils/supabase-browser";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { PrimaryButton, SecondaryButton } from "./buttons";
+import { PrimaryButton } from "./buttons";
 
 export default function AuthButton() {
   const router = useRouter();
@@ -53,10 +53,10 @@ export default function AuthButton() {
     setLoading(false);
   };
 
-  const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    router.refresh();
-  };
+  // const handleSignOut = async () => {
+  //   await supabase.auth.signOut();
+  //   router.refresh();
+  // };
 
   return (
     <div>
@@ -104,7 +104,7 @@ export default function AuthButton() {
               onClick={() => setView("sign-up")}
               className="text-[#4B8DF8] hover:text-[#3A6BC4] hover:underline dark:text-[#00FFD1] dark:hover:text-[#00CCAA]"
             >
-              Don't have an account? Sign up
+              Don&apos;t have an account? Sign up
             </button>
           </div>
         </>

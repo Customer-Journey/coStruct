@@ -1,86 +1,103 @@
-import { createClient } from "./supabase-browser";
+// import { createClient } from "./supabase-browser";
+// import { SupabaseClient } from "@supabase/supabase-js";
 
-export type Profile = {
-    id: string;
-    display_name: string | null;
-    avatar_url: string | null;
-    bio: string | null;
-    created_at: string;
-    updated_at: string;
-};
+// export type Profile = {
+//     id: string;
+//     display_name: string | null;
+//     avatar_url: string | null;
+//     bio: string | null;
+//     username?: string | null;
+//     website?: string | null;
+//     created_at: string;
+//     updated_at: string;
+// };
 
-export async function getUserProfile() {
-    const supabase = createClient();
-    const { data, error } = await supabase
-        .from("profiles")
-        .select("*")
-        .single();
+// export async function getUserProfile() {
+//     const supabase = createClient();
+//     const result = await supabase
+//         .from("profiles")
+//         .select("*")
+//         .single();
 
-    if (error) {
-        console.error("Error fetching profile:", error);
-        return null;
-    }
+//     const { data, error } = result;
 
-    return data as Profile;
-}
+//     if (error) {
+//         console.error("Error fetching profile:", error);
+//         return null;
+//     }
 
-export async function updateUserProfile(
-    updates: Partial<Omit<Profile, "id" | "created_at" | "updated_at">>
-) {
-    const supabase = createClient();
-    const { data, error } = await supabase
-        .from("profiles")
-        .update(updates)
-        .eq("id", (await supabase.auth.getUser()).data.user?.id || "")
-        .select()
-        .single();
+//     return data as Profile;
+// }
 
-    if (error) {
-        console.error("Error updating profile:", error);
-        return null;
-    }
+// export async function updateUserProfile(
+//     updates: Partial<Omit<Profile, "id" | "created_at" | "updated_at">>
+// ) {
+//     const supabase = createClient();
+//     const user = await supabase.auth.getUser();
+//     const userId = user.data.user?.id ?? "";
 
-    return data as Profile;
-}
+//     const result = await supabase
+//         .from("profiles")
+//         .update(updates)
+//         .eq("id", userId)
+//         .select()
+//         .single();
 
-export type UserSettings = {
-    id: string;
-    email_notifications: boolean;
-    theme: string;
-    created_at: string;
-    updated_at: string;
-};
+//     const { data, error } = result;
 
-export async function getUserSettings() {
-    const supabase = createClient();
-    const { data, error } = await supabase
-        .from("user_settings")
-        .select("*")
-        .single();
+//     if (error) {
+//         console.error("Error updating profile:", error);
+//         return null;
+//     }
 
-    if (error) {
-        console.error("Error fetching settings:", error);
-        return null;
-    }
+//     return data as Profile;
+// }
 
-    return data as UserSettings;
-}
+// export type UserSettings = {
+//     id: string;
+//     email_notifications: boolean;
+//     theme: string;
+//     created_at: string;
+//     updated_at: string;
+// };
 
-export async function updateUserSettings(
-    updates: Partial<Omit<UserSettings, "id" | "created_at" | "updated_at">>
-) {
-    const supabase = createClient();
-    const { data, error } = await supabase
-        .from("user_settings")
-        .update(updates)
-        .eq("id", (await supabase.auth.getUser()).data.user?.id || "")
-        .select()
-        .single();
+// export async function getUserSettings() {
+//     const supabase = createClient();
+//     const result = await supabase
+//         .from("user_settings")
+//         .select("*")
+//         .single();
 
-    if (error) {
-        console.error("Error updating settings:", error);
-        return null;
-    }
+//     const { data, error } = result;
 
-    return data as UserSettings;
-} 
+//     if (error) {
+//         console.error("Error fetching settings:", error);
+//         return null;
+//     }
+
+//     return data as UserSettings;
+// }
+
+// export async function updateUserSettings(
+//     updates: Partial<Omit<UserSettings, "id" | "created_at" | "updated_at">>
+// ) {
+//     const supabase = createClient();
+//     const user = await supabase.auth.getUser();
+//     const userId = user.data.user?.id ?? "";
+
+//     const result = await supabase
+//         .from("user_settings")
+//         .update(updates)
+//         .eq("id", userId)
+//         .select()
+//         .single();
+
+//     const { data, error } = result;
+
+//     if (error) {
+//         console.error("Error updating settings:", error);
+//         return null;
+//     }
+
+//     return data as UserSettings;
+// } 
