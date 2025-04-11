@@ -18,14 +18,14 @@ export async function GET(request: NextRequest) {
                     get(name: string) {
                         return request.cookies.get(name)?.value;
                     },
-                    set(name: string, value: string, options: Record<string, unknown> = {}) {
+                    set(name: string, value: string, options) {
                         response.cookies.set({
                             name,
                             value,
                             ...options,
                         });
                     },
-                    remove(name: string, options: Record<string, unknown> = {}) {
+                    remove(name: string, options) {
                         response.cookies.set({
                             name,
                             value: "",
