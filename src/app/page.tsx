@@ -77,10 +77,6 @@ export default function Home() {
             DM me on X
           </CTALinkButton>
         </div>
-
-        <p className="mt-8 text-center text-sm text-[#666] italic dark:text-[#999]">
-          This page may age well.
-        </p>
       </div>
     </main>
   );
