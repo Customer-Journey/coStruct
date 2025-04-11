@@ -1,4 +1,5 @@
-"use client";
+import { SignInButton } from "./_components/sign-in-button";
+import { CTALinkButton } from "./_components/buttons";
 
 export default function Home() {
   return (
@@ -11,6 +12,11 @@ export default function Home() {
           backgroundSize: "40px 40px",
         }}
       />
+
+      {/* Sign In Button */}
+      <div className="absolute top-6 right-6 z-10 md:right-12 lg:right-24">
+        <SignInButton />
+      </div>
 
       <div className="animate-fade-in relative mx-auto max-w-3xl space-y-12">
         {/* Header */}
@@ -63,15 +69,15 @@ export default function Home() {
             This is your signal.
           </p>
 
-          <a
+          <CTALinkButton
             href="https://x.com/ChristofferOle5"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-[#4B8DF8] px-8 py-4 text-lg font-medium text-white shadow-md transition-all hover:opacity-90 hover:shadow-xl dark:bg-[#00FFD1] dark:text-[#0D0D0D] dark:shadow-[#00FFD1]/10"
           >
             DM me on X
-          </a>
+          </CTALinkButton>
         </div>
+
         <p className="mt-8 text-center text-sm text-[#666] italic dark:text-[#999]">
           This page may age well.
         </p>
